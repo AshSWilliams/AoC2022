@@ -2,8 +2,6 @@
 
 -compile(export_all).
 
-
-
 problem(1) ->
     {ok, Input} = file:open("input.txt", read),
     calculate_score(Input, move);
@@ -26,21 +24,19 @@ calculate_score(Input, Score, Style) ->
             Score
     end.
 
+%% I could do this more cleverly, but it's an early problem and I'm tired
 do_calculate_score("A", "X", move) -> 4;
 do_calculate_score("A", "Y", move) -> 8;
 do_calculate_score("A", "Z", move) -> 3;
-do_calculate_score("B", "X", move) -> 1;
-do_calculate_score("B", "Y", move) -> 5;
-do_calculate_score("B", "Z", move) -> 9;
+do_calculate_score("B", "X", _) -> 1;
+do_calculate_score("B", "Y", _) -> 5;
+do_calculate_score("B", "Z", _) -> 9;
 do_calculate_score("C", "X", move) -> 7;
 do_calculate_score("C", "Y", move) -> 2;
 do_calculate_score("C", "Z", move) -> 6;
 do_calculate_score("A", "X", outcome) -> 3;
 do_calculate_score("A", "Y", outcome) -> 4;
 do_calculate_score("A", "Z", outcome) -> 8;
-do_calculate_score("B", "X", outcome) -> 1;
-do_calculate_score("B", "Y", outcome) -> 5;
-do_calculate_score("B", "Z", outcome) -> 9;
 do_calculate_score("C", "X", outcome) -> 2;
 do_calculate_score("C", "Y", outcome) -> 6;
 do_calculate_score("C", "Z", outcome) -> 7.
